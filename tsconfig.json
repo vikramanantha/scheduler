@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    /* Basic Options */
+    "target": "es6",                /* Generates modern JS that works in browsers */
+    "module": "none",               /* CRITICAL: Tells TS not to use "require" or "import" syntax */
+    "strict": true,                 /* Keeps the type checking strict and safe */
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+
+    /* Browser Support */
+    "lib": ["dom", "es6", "dom.iterable", "scripthost"] /* Ensures TS knows about 'document', 'window', etc. */
+  },
+  "include": ["scheduler.ts"]
+}

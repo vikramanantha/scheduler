@@ -1,0 +1,371 @@
+/* Import Lexend Deca font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@300;400;500;600;700&display=swap');
+
+/* Apply Lexend Deca as the primary font and define color variables */
+:root {
+    --font-primary: 'Lexend Deca', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --color-main: #0A2342;
+    --color-accent: #ED254E;
+    --color-background: #EAEBED;
+    /* New Scheduler Variables */
+    --color-success: #28a745;
+    --color-warning: #ffc107;
+    --color-danger: #dc3545;
+    --card-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-primary);
+}
+
+body {
+    background-color: var(--color-background);
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    /* border: 2px solid var(--color-main); */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    transition: filter 0.3s ease-out;
+}
+
+header {
+    background-color: var(--color-main);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    position: fixed;
+    top: 5px;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    width: auto;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 15px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: background-color 0.3s ease;
+}
+
+/* ... [All existing CSS from your file remains exactly here] ... */
+/* ... [Skipping middle content for brevity, assume all original CSS is here] ... */
+
+
+/* ==========================================================================
+   SCHEDULER APP STYLES (New Addition)
+   ========================================================================== */
+
+.scheduler-container {
+    display: flex;
+    flex-direction: column;
+    padding: 100px 20px 20px; /* Top padding clears the fixed header */
+    max-width: 1400px;
+    margin: 0 auto;
+    gap: 20px;
+}
+
+.scheduler-controls {
+    text-align: center;
+    margin-bottom: 20px;
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: var(--card-shadow);
+    border: 1px solid #ddd;
+}
+
+.scheduler-controls h1 {
+    color: var(--color-main);
+}
+
+.stats-panel {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 10px;
+    font-weight: 600;
+    color: #666;
+}
+
+.scheduler-actions {
+    margin-top: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.scheduler-button {
+    border: none;
+    border-radius: 999px;
+    background: var(--color-main);
+    color: white;
+    padding: 10px 18px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: var(--card-shadow);
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+}
+
+.scheduler-button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 14px rgba(10, 35, 66, 0.18);
+}
+
+.scheduler-button:disabled {
+    cursor: wait;
+    opacity: 0.7;
+    transform: none;
+    box-shadow: var(--card-shadow);
+}
+
+.scheduler-status {
+    min-height: 24px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #4b5563;
+}
+
+.scheduler-status.error {
+    color: var(--color-danger);
+}
+
+.scheduler-layout {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+/* Left Sidebar: Course Pool */
+.course-pool-section {
+    flex: 0 0 250px; /* Fixed width */
+    background: white;
+    padding: 15px;
+    border-radius: 15px;
+    border: 2px solid var(--color-main);
+    height: calc(100vh - 200px);
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.course-pool-section h2 {
+    font-size: 1.2rem;
+    color: var(--color-main);
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.pool-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-height: 200px;
+}
+
+/* Right Section: Timeline */
+.timeline-section {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 equal columns */
+    gap: 15px;
+}
+
+.semester-column {
+    background-color: #f8f9fa;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+    min-height: 500px;
+}
+
+.semester-header {
+    background-color: var(--color-main);
+    color: white;
+    padding: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    text-align: center;
+    position: relative;
+}
+
+.semester-header h3 {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+}
+
+.term-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+.term-badge.fall {
+    background-color: #d35400; /* Autumn orange */
+    color: white;
+}
+
+.term-badge.winter {
+    background-color: #2980b9; /* Winter blue */
+    color: white;
+}
+
+.semester-stats {
+    font-size: 0.9rem;
+    background: rgba(0,0,0,0.2);
+    border-radius: 4px;
+    padding: 2px;
+}
+
+.credits-count.over-limit {
+    color: #ff6b6b;
+    font-weight: bold;
+}
+
+.credits-count.good-limit {
+    color: #51cf66;
+}
+
+.semester-dropzone {
+    padding: 10px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: background-color 0.2s;
+}
+
+.semester-dropzone.drag-over {
+    background-color: #e3e8ee;
+    border: 2px dashed var(--color-main);
+}
+
+/* Course Card Styles */
+.course-card {
+    background: white;
+    border: 1px solid #ddd;
+    border-left: 5px solid var(--color-main);
+    border-radius: 8px;
+    padding: 10px;
+    cursor: grab;
+    transition: transform 0.2s, box-shadow 0.2s;
+    user-select: none;
+    position: relative;
+}
+
+.course-card:active {
+    cursor: grabbing;
+    transform: scale(1.02);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.course-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.course-code {
+    font-weight: 700;
+    color: var(--color-main);
+}
+
+.course-credits {
+    background: #eee;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.course-name {
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+    line-height: 1.2;
+}
+
+.course-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.workload-badge {
+    font-size: 0.75rem;
+    padding: 2px 4px;
+    border-radius: 4px;
+    align-self: flex-start;
+}
+
+.workload-badge.light { background-color: #d4edda; color: #155724; }
+.workload-badge.medium { background-color: #fff3cd; color: #856404; }
+.workload-badge.heavy { background-color: #f8d7da; color: #721c24; font-weight: bold; }
+
+/* Error States */
+.card-error {
+    border-color: var(--color-warning);
+    background-color: #fffbf0;
+}
+
+.card-severe-error {
+    border-color: var(--color-danger);
+    background-color: #fff0f0;
+}
+
+.error-msg {
+    font-size: 0.7rem;
+    color: var(--color-danger);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: 2px;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .scheduler-layout {
+        flex-direction: column;
+    }
+    
+    .course-pool-section {
+        width: 100%;
+        height: auto;
+        flex: none;
+        flex-direction: row;
+        overflow-x: auto;
+    }
+    
+    .timeline-section {
+        width: 100%;
+        grid-template-columns: repeat(2, 1fr); /* 2x2 grid on medium screens */
+    }
+}
+
+@media (max-width: 600px) {
+    .timeline-section {
+        grid-template-columns: 1fr; /* Stacked on mobile */
+    }
+}

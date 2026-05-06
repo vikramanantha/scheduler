@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Scheduler - Vikram Anantha</title>
+    <meta name="description" content="Plan courses across future semesters with drag-and-drop scheduling and JSON import/export. A tool by Vikram Anantha.">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="../images/icon.png">
+</head>
+<body>
+    <div class="container">
+        <div id="header-placeholder"></div>
+        <main class="scheduler-container">
+            <div class="scheduler-controls">
+                <h1>Scheduler</h1>
+                <p>When it hit that I only have 4 sems of classes left I realized I'm cooked</p>
+                <div class="scheduler-actions">
+                    <button id="export-json-btn" class="scheduler-button" type="button">
+                        <i class="fas fa-file-export"></i>
+                        Export JSON
+                    </button>
+                    <span id="export-status" class="scheduler-status" aria-live="polite"></span>
+                </div>
+            </div>
+
+            <div class="scheduler-layout">
+                <div class="course-pool-section">
+                    <h2>Available Courses</h2>
+                    <div id="semester-pool" class="course-list pool-area" data-semester-id="pool"></div>
+                </div>
+
+                <div class="timeline-section">
+                    <div class="semester-column" id="sem-fa26">
+                        <div class="semester-header">
+                            <h3>Fall 2026</h3>
+                            <span class="term-badge fall">Fall</span>
+                            <div class="semester-stats">
+                                <span class="credits-count">0/18 Credits</span>
+                            </div>
+                        </div>
+                        <div class="course-list semester-dropzone" data-semester-id="fa26" data-term="Fall"></div>
+                    </div>
+
+                    <div class="semester-column" id="sem-wi27">
+                        <div class="semester-header">
+                            <h3>Winter 2027</h3>
+                            <span class="term-badge winter">Winter</span>
+                            <div class="semester-stats">
+                                <span class="credits-count">0/18 Credits</span>
+                            </div>
+                        </div>
+                        <div class="course-list semester-dropzone" data-semester-id="wi27" data-term="Winter"></div>
+                    </div>
+
+                    <div class="semester-column" id="sem-fa27">
+                        <div class="semester-header">
+                            <h3>Fall 2027</h3>
+                            <span class="term-badge fall">Fall</span>
+                            <div class="semester-stats">
+                                <span class="credits-count">0/18 Credits</span>
+                            </div>
+                        </div>
+                        <div class="course-list semester-dropzone" data-semester-id="fa27" data-term="Fall"></div>
+                    </div>
+
+                    <div class="semester-column" id="sem-wi28">
+                        <div class="semester-header">
+                            <h3>Winter 2028</h3>
+                            <span class="term-badge winter">Winter</span>
+                            <div class="semester-stats">
+                                <span class="credits-count">0/18 Credits</span>
+                            </div>
+                        </div>
+                        <div class="course-list semester-dropzone" data-semester-id="wi28" data-term="Winter"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <div id="footer-placeholder"></div>
+    </div>
+    <script src="../header.js"></script>
+    <script src="../footer.js"></script>
+    <script>
+        loadHeader();
+        loadFooter();
+    </script>
+    <script src="scheduler.js"></script>
+</body>
+</html>
